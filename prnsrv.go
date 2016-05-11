@@ -16,6 +16,7 @@ func main() {
 	flag.IntVar(&port, "port", 8000, "the port on which to listen")
 	flag.Parse()
 
+	log.Println("starting")
 	server, err := net.Listen("tcp", ":"+strconv.Itoa(port))
 	if server == nil {
 		log.Fatal(err)
@@ -51,7 +52,6 @@ func handleConn(client net.Conn) {
 		if err != nil { // EOF, or worse
 			break
 		}
-		println(strings.TrimSpace(line))
-		println("-- next --")
+		log.Println(strings.TrimSpace(line))
 	}
 }
