@@ -8,7 +8,7 @@ endpoint. This prints out whatever is sent in the `prnsrv` logs.
 ### How to use?
 
 1. cd into the repo
-2. run either `go run prnsrv` or `go install prnsrv`
+2. run either `go run prnsrv.go` or `go install`
 3. run `prnsrv` if you want this to listen on port 8000 or provide a port using
    the flag `-port <port-number>`.
 
