@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"flag"
-	"fmt"
 	"log"
 	"net"
 	"strconv"
@@ -16,7 +15,7 @@ func main() {
 	flag.IntVar(&port, "port", 8000, "the port on which to listen")
 	flag.Parse()
 
-	log.Println("starting")
+	log.Printf("starting on %d\n", port)
 	server, err := net.Listen("tcp", ":"+strconv.Itoa(port))
 	if server == nil {
 		log.Fatal(err)
@@ -38,7 +37,7 @@ func clientConns(listener net.Listener) chan net.Conn {
 				continue
 			}
 			i++
-			fmt.Printf("%d: %v <-> %v\n", i, client.LocalAddr(), client.RemoteAddr())
+			log.Printf("%d: %v <-> %v\n", i, client.LocalAddr(), client.RemoteAddr())
 			ch <- client
 		}
 	}()
