@@ -1,3 +1,10 @@
+// `prnsrv`` provides a simple tcp server that can be used to debug the output
+// of applications pushing data to another tcp server.
+//
+// To use run, use either
+//   `go run prnsrv.go` or `prnsrv` if you've installed the package
+// To listen on port other than `8000`, use the -p flag
+//   `go run prnsrv.go -p 8181` or `prnsrv -p 8181`
 package main
 
 import (
