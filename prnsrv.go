@@ -9,14 +9,12 @@ import (
 	"strings"
 )
 
-var port int
-
 func main() {
-	flag.IntVar(&port, "port", 8000, "the port on which to listen")
+	var port = flag.Int("port", 8000, "the port on which to listen")
 	flag.Parse()
 
-	log.Printf("starting on %d\n", port)
-	server, err := net.Listen("tcp", ":"+strconv.Itoa(port))
+	log.Printf("starting on %d\n", *port)
+	server, err := net.Listen("tcp", ":"+strconv.Itoa(*port))
 	if server == nil {
 		log.Fatal(err)
 	}
